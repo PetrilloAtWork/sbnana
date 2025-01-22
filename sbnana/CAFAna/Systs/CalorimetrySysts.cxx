@@ -20,8 +20,7 @@ namespace ana {
     cet::search_path sp("FW_SEARCH_PATH");
 
     std::string kdEdXUncTemplateFileName = "template_dEdXUncertainty.root";
-    std::string kdEdXUncTemplateFullFilePath;
-    sp.find_file(kdEdXUncTemplateFileName, kdEdXUncTemplateFullFilePath);
+    std::string kdEdXUncTemplateFullFilePath = sp.find_file(kdEdXUncTemplateFileName);
 
     TFile* file_dEdXUncTemplate = TFile::Open(kdEdXUncTemplateFullFilePath.c_str());
     dedx_unc_template = (TGraph2D*)file_dEdXUncTemplate->Get("dEdXRelUncertainty_dEdX_vs_phi");
